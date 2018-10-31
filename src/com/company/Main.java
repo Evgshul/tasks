@@ -1,34 +1,89 @@
 package com.company;
 
-import java.util.Scanner;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class Main {
+    public static void main(String[] args) throws IOException {
 
 
-    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
 
-        binsearch();
-        System.out.println(binsearch());
-    }
-
-    public static int binsearch() {
-        int mas[] = {1, 2, 3, 5, 6, 7};
-        Scanner sc = new Scanner(System.in);
-        int j = sc.nextInt();
-
-        int left = 0;
-        int right = mas.length;
-        while (left < right) {
-            int m = (left + right) / 2;
-            if (mas[m] == j) {
-                return mas[m];
-            }
-            if (mas[m] > j) {
-                right = m;
-            } else if (mas[m] < j) {
-                left = m + 1;
-            }
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        for (int i = 0; i < 4; i++) {
+            list.add(reader.readLine());
         }
-        return -1;
+
+
+        for (int j = 1; j < list.size(); j++) {
+            if (list.get(j).length() != ((list.get(j - 1).length()) + 1)
+                    || list.get(j).length() == list.get(j - 1).length()) {
+                System.out.println(j+1);
+                break;
+            }
+
+        }
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
