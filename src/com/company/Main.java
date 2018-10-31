@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
 
-        //bla
+        
         ArrayList<String> list = new ArrayList<>();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
