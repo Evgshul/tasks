@@ -1,36 +1,40 @@
 package com.company;
 
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
 
+    public static HashSet<Integer> createSet() {
+        // напишите тут ваш код
+        HashSet<Integer> num = new HashSet<>();
 
-        
-        ArrayList<String> list = new ArrayList<>();
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        for (int i = 0; i < 4; i++) {
-            list.add(reader.readLine());
+        for (int i = 1; i <= 20; i++) {
+            num.add(i);
         }
+        return num;
+    }
+
+    public static HashSet<Integer> removeAllNumbersGreaterThan10(HashSet<Integer> set) {
+        // напишите тут ваш код
+
+            set.removeIf(x -> x.intValue() > 10);
 
 
-        for (int j = 1; j < list.size(); j++) {
-            if (list.get(j).length() != ((list.get(j - 1).length()) + 1)
-                    || list.get(j).length() == list.get(j - 1).length()) {
-                System.out.println(j+1);
-                break;
-            }
+        /*Iterator<Integer> iter = set.iterator();
+        while (iter.hasNext()) {
+            Integer num = iter.next();
+            if (num > 10)
+                iter.remove();*/
 
-        }
+        return set;
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        System.out.println(removeAllNumbersGreaterThan10(createSet()));
 
     }
 }
-
 
 
 
