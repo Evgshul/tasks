@@ -1,40 +1,35 @@
 package com.company;
 
-import java.util.HashSet;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class Main {
 
-    public static HashSet<Integer> createSet() {
-        // напишите тут ваш код
-        HashSet<Integer> num = new HashSet<>();
-
-        for (int i = 1; i <= 20; i++) {
-            num.add(i);
-        }
-        return num;
-    }
-
-    public static HashSet<Integer> removeAllNumbersGreaterThan10(HashSet<Integer> set) {
-        // напишите тут ваш код
-
-            set.removeIf(x -> x.intValue() > 10);
-
-
-        /*Iterator<Integer> iter = set.iterator();
-        while (iter.hasNext()) {
-            Integer num = iter.next();
-            if (num > 10)
-                iter.remove();*/
-
-        return set;
-    }
 
     public static void main(String[] args) throws Exception {
 
-        System.out.println(removeAllNumbersGreaterThan10(createSet()));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String s = reader.readLine();
 
+        String[] w = s.split(" +");// razdeljaem stroku na slova, uchitivaem chto mozhet bit probelov >1
+        for (int i = 0; i < w.length; i++) {
+            if (w[i].length() != 0) {//check is first string is " "
+                String a = w[i].substring(0, 1).toUpperCase() + w[i].substring(1);
+                //menjaem 1 bukvu na zaglavnuju
+
+                System.out.print(a + " ");
+            }
+
+        }
     }
 }
+
+
+
+
+
+
+
 
 
 
