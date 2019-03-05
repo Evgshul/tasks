@@ -1,36 +1,46 @@
 package com.company;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int[] array = new int[30];
-        for (int i = 0; i < 30; i++) {
-            array[i] = Integer.parseInt(reader.readLine());
-        }
+        String s = reader.readLine().replaceAll("^.+[/?]","");
+        reader.close();
 
-        sort(array);
+        String[] strings = s.split("&");
+        for (String str:strings) {
 
-        System.out.println(array[9]);
-        System.out.println(array[10]);
+            System.out.print(str.replaceAll("[=].+$", "") + " ");
+        }for (String str:strings)
+            if (str.contains("obj")) {
+                try {
+                    alert(Double.parseDouble(str.replaceAll("^.+[=]","")));
+                }
+                catch (Exception e){
+                    alert(str);
+                }
+            }
+
     }
 
-    public static void sort(int[] array) {
-        //напишите тут ваш код
-        for (int i = 1; i < array.length; i++) {
-            int a = array[i];
-            int b = i - 1;
-            while (b >= 0 && array[b] > a) {
-                array[b + 1] = array[b];
-                b--;
-            }
-            array[b + 1] = a;
-        }
+    public static void alert(double value) {
+        System.out.println("double " + value);
+    }
+
+    public static void alert(String value) {
+        System.out.println("String " + value);
     }
 }
+
+
+
+
+
+
 
 
 
